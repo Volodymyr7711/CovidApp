@@ -8,40 +8,27 @@
 import UIKit
 import SDWebImage
 
-class ViewController: UITableViewController, UISearchBarDelegate {
-
-    @IBOutlet weak var searchController: UISearchBar!
-    @IBOutlet var table: UITableView!
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var table: UITableView!
+    
     var model = [Covid]()
     var filteredCountries: [Covid] = []
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fill()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        searchController.delegate = self
         table.delegate = self
         table.dataSource = self
+        definesPresentationContext = true
         parse {
             self.table.reloadData()
         }
-
-    }
-    
-    var isSearchBarEmpty: Bool {
-        return searchController.text?.isEmpty ?? true
-    }
-    
-    func filterContentForSearchText(_ searchText: String,
-                                    category: Covid? = nil) {
-      filteredCountries = model.filter { (candy: Covid) -> Bool in
-        return candy.country.lowercased().contains(searchText.lowercased())
-      }
-      
-      tableView.reloadData()
-    }
-    
-    var isFiltering: Bool {
-        return (searchController != nil) && !isSearchBarEmpty
     }
     
     func parse(completed: @escaping () -> ()) {
@@ -60,40 +47,74 @@ class ViewController: UITableViewController, UISearchBarDelegate {
             }
         }.resume()
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if isFiltering {
-            return filteredCountries.count
-        }
-            return model.count
+    
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if isFiltering {
+        return filteredCountries.count
+    }
+        return model.count
+    }
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as! CovidTableCell
+    //        let location = model[indexPath.row]
+    let corona: Covid
+    if isFiltering {
+        corona = filteredCountries[indexPath.row]
+    } else {
+        corona = model[indexPath.row]
+    }
+    cell.country.text = corona.country
+    cell.cases.text = String(corona.cases)
+    cell.deaths.text = String(corona.deaths!)
+    let imgUrl = corona.countryInfo.flag
+    cell.img.sd_setImage(with: URL(string: imgUrl), completed: nil)
+    return cell
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as! CovidTableCell
-        let covid: Covid
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let corona: Covid
+        let detailsvc = storyboard?.instantiateViewController(withIdentifier: "detailvc") as? DetailViewController
         if isFiltering {
-            covid  = filteredCountries[indexPath.row]
+            corona = filteredCountries[indexPath.row]
         } else {
-            covid = model[indexPath.row]
+            corona = model[indexPath.row]
         }
-        cell.country.text = covid.country
-        cell.cases.text = String(covid.cases)
-        cell.deaths.text = String(covid.deaths!)
-        let imgUrl = model[indexPath.row].countryInfo.flag
-        cell.img.sd_setImage(with: URL(string: imgUrl), completed: nil)
-        return cell
+        self.navigationController?.pushViewController(detailsvc!, animated: true)
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let detailvc = storyboard.instantiateViewController(withIdentifier: "detailvc") as! DetailViewController
-        self.present(detailvc, animated: true, completion: nil)
-    }
-}
+  }
 
 extension ViewController: UISearchResultsUpdating {
+   
+    func fill() {
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Country"
+        self.topView.addSubview(self.searchController.searchBar)
+        self.searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.frame.size.width = self.view.frame.size.width
+        navigationItem.searchController = searchController
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
     }
+    func filterContentForSearchText(_ searchText: String,
+                                    category: Covid? = nil) {
+        filteredCountries = model.filter { (country: Covid) -> Bool in
+            return country.country.lowercased().contains(searchText.lowercased())
+      }
+        table.reloadData()
+    }
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
+    
   }

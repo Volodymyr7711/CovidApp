@@ -8,13 +8,16 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    var ill: Covid!
+    
+    var covid: Covid!
     
     @IBOutlet weak var recovered: UILabel!
     @IBOutlet weak var todayRecovered: UILabel!
+    @IBOutlet weak var continent: UILabel!
+    @IBOutlet weak var todayDeaths: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        continent.text = covid.continent
     }
 }

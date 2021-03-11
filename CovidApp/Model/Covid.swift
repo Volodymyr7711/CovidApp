@@ -13,7 +13,7 @@ struct Covid: Codable {
     var cases: Int
     var deaths: Int?
     var todayDeaths: Int?
-    var recovered: Int?
+    var recovered: Int!
     var continent: String
     var todayRecovered: Int?
     var countryInfo: CountryInfo

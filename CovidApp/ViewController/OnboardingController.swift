@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Lottie
+
 
 class OnboardingController: UIViewController, UIScrollViewDelegate {
     
@@ -55,8 +55,8 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
             )
             txt2.textAlignment = .center
             txt2.numberOfLines = 4
-            txt2.font = UIFont.boldSystemFont(ofSize: 20.0)
-            txt2.textColor = UIColor.systemBlue
+            txt2.font = UIFont.boldSystemFont(ofSize: 19.0)
+            txt2.textColor = UIColor.white
             txt2.text = desc[index]
             slide.addSubview(image)
             slide.addSubview(txt2)
@@ -88,11 +88,11 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
         button.backgroundColor = .clear
         button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.5
-        button.layer.borderColor = UIColor.systemGray.cgColor
+        button.layer.borderColor = UIColor.white.cgColor
     }
     
     @IBAction func statisticAction(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "infovc") as! ViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabVC") as! TabController
         self.present(vc, animated: true, completion: nil)
     }
 }

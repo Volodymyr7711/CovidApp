@@ -16,7 +16,9 @@ class NewsTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.layoutIfNeeded()
+        newsImg.layer.cornerRadius = 10
+        newsImg.layer.masksToBounds = true
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

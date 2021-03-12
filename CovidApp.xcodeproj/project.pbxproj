@@ -21,7 +21,6 @@
 		2D5781B125FA1CDC00CA0E59 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5781B025FA1CDC00CA0E59 /* NewsViewController.swift */; };
 		2D5781BE25FA2E8E00CA0E59 /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5781BD25FA2E8E00CA0E59 /* NewsDetailsViewController.swift */; };
 		2D5781C625FA3D0F00CA0E59 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5781C525FA3D0F00CA0E59 /* TabController.swift */; };
-		2D63F31325F7E3A5006701F5 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D63F31225F7E3A5006701F5 /* Background.swift */; };
 		2D76056E25F23E2800F47FC4 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D76056D25F23E2800F47FC4 /* OnboardingController.swift */; };
 		2D76057125F24FD400F47FC4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D76057025F24FD400F47FC4 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -68,7 +67,6 @@
 		2D5781B025FA1CDC00CA0E59 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		2D5781BD25FA2E8E00CA0E59 /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
 		2D5781C525FA3D0F00CA0E59 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
-		2D63F31225F7E3A5006701F5 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		2D76056D25F23E2800F47FC4 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		2D76057025F24FD400F47FC4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		534EDB33D6D71BCD015874F6 /* Pods_CovidApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,7 +163,6 @@
 				2D5781B025FA1CDC00CA0E59 /* NewsViewController.swift */,
 				2D5781BD25FA2E8E00CA0E59 /* NewsDetailsViewController.swift */,
 				2D5781C525FA3D0F00CA0E59 /* TabController.swift */,
-				2D63F31225F7E3A5006701F5 /* Background.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -346,7 +343,6 @@
 				2D55B2CA25F175BD007CC355 /* ViewController.swift in Sources */,
 				2D55B2C625F175BD007CC355 /* AppDelegate.swift in Sources */,
 				2D76056E25F23E2800F47FC4 /* OnboardingController.swift in Sources */,
-				2D63F31325F7E3A5006701F5 /* Background.swift in Sources */,
 				2D5781B125FA1CDC00CA0E59 /* NewsViewController.swift in Sources */,
 				2D55B2C825F175BD007CC355 /* SceneDelegate.swift in Sources */,
 				2D55B2DB25F176E3007CC355 /* Covid.swift in Sources */,

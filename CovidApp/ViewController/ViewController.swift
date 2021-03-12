@@ -48,43 +48,46 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         }.resume()
     }
     
-   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if isFiltering {
-        return filteredCountries.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredCountries.count
+        }
         return model.count
     }
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as! CovidTableCell
-    //        let location = model[indexPath.row]
-    let corona: Covid
-    if isFiltering {
-        corona = filteredCountries[indexPath.row]
-    } else {
-        corona = model[indexPath.row]
-    }
-    cell.country.text = corona.country
-    cell.cases.text = String(corona.cases)
-    cell.deaths.text = String(corona.deaths!)
-    let imgUrl = corona.countryInfo.flag
-    cell.img.sd_setImage(with: URL(string: imgUrl), completed: nil)
-    return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as! CovidTableCell
+        //        let location = model[indexPath.row]
         let corona: Covid
-        let detailsvc = storyboard?.instantiateViewController(withIdentifier: "detailvc") as? DetailViewController
         if isFiltering {
             corona = filteredCountries[indexPath.row]
         } else {
             corona = model[indexPath.row]
         }
-        self.navigationController?.pushViewController(detailsvc!, animated: true)
+        cell.country.text = corona.country
+        cell.cases.text = String(corona.cases)
+        cell.deaths.text = String(corona.deaths!)
+        let imgUrl = corona.countryInfo.flag
+        cell.img.sd_setImage(with: URL(string: imgUrl), completed: nil)
+        return cell
     }
-  }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let corona: Covid
+        let detailsvc = storyboard?.instantiateViewController(withIdentifier: "detailvc") as! DetailViewController
+        if isFiltering {
+            corona = filteredCountries[indexPath.row]
+            detailsvc.covid = corona
+        } else {
+            corona = model[indexPath.row]
+            detailsvc.covid = corona
+        }
+        self.present(detailsvc, animated: true, completion: nil)
+    }
+    
+}
 
 extension ViewController: UISearchResultsUpdating {
-   
+    
     func fill() {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -107,14 +110,14 @@ extension ViewController: UISearchResultsUpdating {
                                     category: Covid? = nil) {
         filteredCountries = model.filter { (country: Covid) -> Bool in
             return country.country.lowercased().contains(searchText.lowercased())
-      }
+        }
         table.reloadData()
     }
     var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
+        return searchController.isActive && !isSearchBarEmpty
     }
     
-  }
+}

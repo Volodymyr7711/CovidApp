@@ -17,7 +17,9 @@ class CovidTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.layoutIfNeeded()
+        img.layer.cornerRadius = 10
+        img.layer.masksToBounds = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

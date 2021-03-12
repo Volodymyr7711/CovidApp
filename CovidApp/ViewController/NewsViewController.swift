@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 class NewsViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var newsFeed = [Article]()
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class NewsViewController: UIViewController {
         
     }
     func parse(completed: @escaping () -> ()) {
-        let url = URL(string: "http://newsapi.org/v2/everything?q=coronavirus&apiKey=c4a5aefd474b42069c588527578ffa4a")
+        let url = URL(string: "http://newsapi.org/v2/everything?q=covid&language=en&apiKey=c4a5aefd474b42069c588527578ffa4a")
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {
@@ -56,11 +56,14 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.desc.text = feed.description
         cell.name.text = feed.author
         cell.title.text = feed.title
-        cell.newsImg.sd_setImage(with:URL(string: imgToUrl), completed: nil)
+        cell.newsImg.sd_setImage(with:URL(string: imgToUrl!), completed: nil)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newsVC = storyboard?.instantiateViewController(withIdentifier: "newsVC") as! NewsDetailsViewController
-            self.navigationController?.pushViewController(newsVC, animated: true)
+        let news = newsFeed[indexPath.row]
+        newsVC.news = news
+        self.present(newsVC, animated: true, completion: nil)
+        
     }
 }

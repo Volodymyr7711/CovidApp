@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class CountryViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var table: UITableView!
@@ -47,6 +47,41 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
             }
         }.resume()
     }
+}
+
+extension CountryViewController: UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
+    
+    func fill() {
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Country"
+        self.topView.addSubview(self.searchController.searchBar)
+        self.searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.frame.size.width = self.view.frame.size.width
+        navigationItem.searchController = searchController
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+    func filterContentForSearchText(_ searchText: String,
+                                    category: Covid? = nil) {
+        filteredCountries = model.filter { (country: Covid) -> Bool in
+            return country.country.lowercased().contains(searchText.lowercased())
+        }
+        table.reloadData()
+    }
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
@@ -83,41 +118,4 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         }
         self.present(detailsvc, animated: true, completion: nil)
     }
-    
-}
-
-extension ViewController: UISearchResultsUpdating {
-    
-    func fill() {
-        searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Country"
-        self.topView.addSubview(self.searchController.searchBar)
-        self.searchController.searchBar.sizeToFit()
-        self.searchController.searchBar.frame.size.width = self.view.frame.size.width
-        navigationItem.searchController = searchController
-    }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let searchBar = searchController.searchBar
-        filterContentForSearchText(searchBar.text!)
-    }
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        filterContentForSearchText(searchBar.text!)
-    }
-    func filterContentForSearchText(_ searchText: String,
-                                    category: Covid? = nil) {
-        filteredCountries = model.filter { (country: Covid) -> Bool in
-            return country.country.lowercased().contains(searchText.lowercased())
-        }
-        table.reloadData()
-    }
-    var isSearchBarEmpty: Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    var isFiltering: Bool {
-        return searchController.isActive && !isSearchBarEmpty
-    }
-    
 }

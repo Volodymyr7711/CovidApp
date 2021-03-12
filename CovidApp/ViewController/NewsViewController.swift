@@ -12,6 +12,7 @@ class NewsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var newsFeed = [Article]()
+    var apiKey: String = "c4a5aefd474b42069c588527578ffa4a"
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -24,7 +25,7 @@ class NewsViewController: UIViewController {
         
     }
     func parse(completed: @escaping () -> ()) {
-        let url = URL(string: "http://newsapi.org/v2/everything?q=covid&language=en&apiKey=c4a5aefd474b42069c588527578ffa4a")
+        let url = URL(string: "http://newsapi.org/v2/everything?q=covid&language=en&apiKey=\(apiKey)")
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {

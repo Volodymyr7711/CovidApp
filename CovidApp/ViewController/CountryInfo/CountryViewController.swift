@@ -91,7 +91,6 @@ extension CountryViewController: UISearchResultsUpdating, UITableViewDelegate, U
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as! CovidTableCell
-        //        let location = model[indexPath.row]
         let corona: Covid
         if isFiltering {
             corona = filteredCountries[indexPath.row]

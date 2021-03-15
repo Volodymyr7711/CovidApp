@@ -13,6 +13,9 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var newsFeed = [Article]()
     var apiKey: String = "c4a5aefd474b42069c588527578ffa4a"
+    var category: String = "covid"
+    var language: String = "en"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -22,10 +25,9 @@ class NewsViewController: UIViewController {
             self.tableView.reloadData()
             self.tableView.layoutIfNeeded()
         }
-        
     }
     func parse(completed: @escaping () -> ()) {
-        let url = URL(string: "http://newsapi.org/v2/everything?q=covid&language=en&apiKey=\(apiKey)")
+        let url = URL(string: "http://newsapi.org/v2/everything?q=\(category)&language=\(language)&apiKey=\(apiKey)")
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {
@@ -43,7 +45,6 @@ class NewsViewController: UIViewController {
     }
 }
 
-
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,7 +58,10 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.desc.text = feed.description
         cell.name.text = feed.author
         cell.title.text = feed.title
-        cell.newsImg.sd_setImage(with:URL(string: imgToUrl!), completed: nil)
+        if cell.newsImg == nil {
+            cell.newsImg.image = UIImage(named:"download")
+        }
+        cell.newsImg.sd_setImage(with:URL(string: imgToUrl!)!, completed: nil)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -65,6 +69,5 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         let news = newsFeed[indexPath.row]
         newsVC.news = news
         self.present(newsVC, animated: true, completion: nil)
-        
     }
 }

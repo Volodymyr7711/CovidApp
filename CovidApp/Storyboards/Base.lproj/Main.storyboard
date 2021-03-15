@@ -25,7 +25,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zme-tp-aXx">
-                                <rect key="frame" x="0.0" y="130" width="414" height="717"/>
+                                <rect key="frame" x="0.0" y="142" width="414" height="705"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="123" id="oQw-wH-dMJ" customClass="CovidTableCell" customModule="CovidApp" customModuleProvider="target">
@@ -142,7 +142,7 @@
                             <constraint firstItem="f0l-Yn-Mz1" firstAttribute="trailing" secondItem="GPn-e2-jhI" secondAttribute="trailing" id="CoY-oc-Itg"/>
                             <constraint firstItem="f0l-Yn-Mz1" firstAttribute="top" secondItem="4N9-Jl-aIX" secondAttribute="bottom" id="LUo-XV-sI4"/>
                             <constraint firstItem="f0l-Yn-Mz1" firstAttribute="leading" secondItem="GPn-e2-jhI" secondAttribute="leading" id="Phi-a6-xGv"/>
-                            <constraint firstItem="Zme-tp-aXx" firstAttribute="top" secondItem="f0l-Yn-Mz1" secondAttribute="bottom" constant="-4" id="mbE-uv-wJg"/>
+                            <constraint firstItem="Zme-tp-aXx" firstAttribute="top" secondItem="f0l-Yn-Mz1" secondAttribute="bottom" constant="8" id="mbE-uv-wJg"/>
                             <constraint firstItem="GPn-e2-jhI" firstAttribute="bottom" secondItem="Zme-tp-aXx" secondAttribute="bottom" constant="-34" id="ozu-k1-GlG"/>
                             <constraint firstItem="f0l-Yn-Mz1" firstAttribute="trailing" secondItem="4N9-Jl-aIX" secondAttribute="trailing" id="vnt-83-xN8"/>
                             <constraint firstItem="GPn-e2-jhI" firstAttribute="trailing" secondItem="Zme-tp-aXx" secondAttribute="trailing" id="zz6-kQ-Sh5"/>
@@ -383,6 +383,33 @@ who is coughing. It is possible to catch it from someone with mild symptoms.</st
             </objects>
             <point key="canvasLocation" x="972" y="-923"/>
         </scene>
+        <!--World-->
+        <scene sceneID="gC5-Va-Wg3">
+            <objects>
+                <viewController id="lIB-5h-hQn" customClass="MapViewController" customModule="CovidApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o5L-xJ-IYe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hrp-3c-ddB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZuN-pG-j2Y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hrp-3c-ddB" firstAttribute="leading" secondItem="ZuN-pG-j2Y" secondAttribute="leading" id="3uK-Tv-y0b"/>
+                            <constraint firstItem="ZuN-pG-j2Y" firstAttribute="trailing" secondItem="hrp-3c-ddB" secondAttribute="trailing" id="pG2-5b-rTV"/>
+                            <constraint firstItem="hrp-3c-ddB" firstAttribute="top" secondItem="ZuN-pG-j2Y" secondAttribute="top" constant="-44" id="uK9-ZU-aXr"/>
+                            <constraint firstItem="ZuN-pG-j2Y" firstAttribute="bottom" secondItem="hrp-3c-ddB" secondAttribute="bottom" id="zBX-sF-hHI"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="World" image="flag.fill" catalog="system" selectedImage="flag.fill" id="U2S-Yx-YnK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Avi-es-fWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1371.0144927536232" y="55.580357142857139"/>
+        </scene>
         <!--News Feed-->
         <scene sceneID="9JS-hE-35d">
             <objects>
@@ -496,6 +523,7 @@ who is coughing. It is possible to catch it from someone with mild symptoms.</st
                     <connections>
                         <segue destination="Itm-5e-XB2" kind="relationship" relationship="viewControllers" id="S18-SR-pcd"/>
                         <segue destination="ZkL-E3-bIp" kind="relationship" relationship="viewControllers" id="gLw-M5-fAw"/>
+                        <segue destination="lIB-5h-hQn" kind="relationship" relationship="viewControllers" id="7uf-8R-nYJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1L-wN-fFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -511,7 +539,7 @@ who is coughing. It is possible to catch it from someone with mild symptoms.</st
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zOD-sh-4Y1">
-                                <rect key="frame" x="20" y="82" width="374" height="286"/>
+                                <rect key="frame" x="20" y="104" width="374" height="264"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaM-FP-QbP">
                                 <rect key="frame" x="20" y="578" width="374" height="136"/>
@@ -565,8 +593,8 @@ who is coughing. It is possible to catch it from someone with mild symptoms.</st
                         <constraints>
                             <constraint firstItem="wnP-k3-hFW" firstAttribute="trailing" secondItem="CW0-km-fb4" secondAttribute="trailing" id="4Ag-Dc-HBH"/>
                             <constraint firstItem="7m5-HJ-a1j" firstAttribute="trailing" secondItem="93n-Si-WnE" secondAttribute="trailing" id="8rK-6f-73r"/>
+                            <constraint firstItem="zOD-sh-4Y1" firstAttribute="top" secondItem="wnP-k3-hFW" secondAttribute="bottom" constant="22" id="AAC-Kv-CH3"/>
                             <constraint firstItem="zOD-sh-4Y1" firstAttribute="trailing" secondItem="7m5-HJ-a1j" secondAttribute="trailing" id="D6i-Mg-1fZ"/>
-                            <constraint firstItem="zOD-sh-4Y1" firstAttribute="top" secondItem="CW0-km-fb4" secondAttribute="top" constant="38" id="Dnt-EC-QgP"/>
                             <constraint firstItem="7m5-HJ-a1j" firstAttribute="top" secondItem="zOD-sh-4Y1" secondAttribute="bottom" constant="17" id="FSq-bN-Chb"/>
                             <constraint firstItem="CW0-km-fb4" firstAttribute="bottom" secondItem="bPM-JV-a2R" secondAttribute="bottom" constant="12" id="HQv-ps-ymk"/>
                             <constraint firstItem="gaM-FP-QbP" firstAttribute="trailing" secondItem="bPM-JV-a2R" secondAttribute="trailing" id="IlK-eK-QOi"/>
@@ -575,6 +603,7 @@ who is coughing. It is possible to catch it from someone with mild symptoms.</st
                             <constraint firstItem="7m5-HJ-a1j" firstAttribute="leading" secondItem="93n-Si-WnE" secondAttribute="leading" id="NlQ-Db-XXf"/>
                             <constraint firstItem="93n-Si-WnE" firstAttribute="leading" secondItem="gaM-FP-QbP" secondAttribute="leading" id="PmP-h9-Ear"/>
                             <constraint firstItem="zOD-sh-4Y1" firstAttribute="trailing" secondItem="4Ef-lt-iNb" secondAttribute="trailingMargin" id="U3g-Li-FMb"/>
+                            <constraint firstItem="zOD-sh-4Y1" firstAttribute="leading" secondItem="wnP-k3-hFW" secondAttribute="trailing" constant="-394" id="WQy-8t-lkV"/>
                             <constraint firstItem="gaM-FP-QbP" firstAttribute="top" secondItem="93n-Si-WnE" secondAttribute="bottom" constant="8" id="ZJf-Rk-pRy"/>
                             <constraint firstItem="zOD-sh-4Y1" firstAttribute="leading" secondItem="7m5-HJ-a1j" secondAttribute="leading" id="cEU-A1-9wK"/>
                             <constraint firstItem="wnP-k3-hFW" firstAttribute="leading" secondItem="CW0-km-fb4" secondAttribute="leading" id="cUh-Dc-YtW"/>
@@ -596,11 +625,12 @@ who is coughing. It is possible to catch it from someone with mild symptoms.</st
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2o-Sl-Y96" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3384" y="56"/>
+            <point key="canvasLocation" x="3382.608695652174" y="55.580357142857139"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.3921568627" green="0.33725490200000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
+        <image name="flag.fill" catalog="system" width="128" height="121"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="newspaper.fill" catalog="system" width="128" height="111"/>
         <image name="search" width="1104.4686279296875" height="797.51507568359375"/>

@@ -10,7 +10,7 @@
 		007CCF25D7D45C515C73CA40 /* Pods_CovidApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534EDB33D6D71BCD015874F6 /* Pods_CovidApp.framework */; };
 		2D55B2C625F175BD007CC355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55B2C525F175BD007CC355 /* AppDelegate.swift */; };
 		2D55B2C825F175BD007CC355 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55B2C725F175BD007CC355 /* SceneDelegate.swift */; };
-		2D55B2CA25F175BD007CC355 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55B2C925F175BD007CC355 /* ViewController.swift */; };
+		2D55B2CA25F175BD007CC355 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55B2C925F175BD007CC355 /* CountryViewController.swift */; };
 		2D55B2CD25F175BD007CC355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D55B2CB25F175BD007CC355 /* Main.storyboard */; };
 		2D55B2CF25F175BE007CC355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D55B2CE25F175BE007CC355 /* Assets.xcassets */; };
 		2D55B2D225F175BE007CC355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D55B2D025F175BE007CC355 /* LaunchScreen.storyboard */; };
@@ -23,6 +23,7 @@
 		2D5781C625FA3D0F00CA0E59 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5781C525FA3D0F00CA0E59 /* TabController.swift */; };
 		2D76056E25F23E2800F47FC4 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D76056D25F23E2800F47FC4 /* OnboardingController.swift */; };
 		2D76057125F24FD400F47FC4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D76057025F24FD400F47FC4 /* DetailViewController.swift */; };
+		2DFD243225FF76BB009927FC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD243125FF76BB009927FC /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,7 @@
 		2D55B2C225F175BD007CC355 /* CovidApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D55B2C525F175BD007CC355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D55B2C725F175BD007CC355 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2D55B2C925F175BD007CC355 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2D55B2C925F175BD007CC355 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 		2D55B2CC25F175BD007CC355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D55B2CE25F175BE007CC355 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D55B2D125F175BE007CC355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		2D5781C525FA3D0F00CA0E59 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		2D76056D25F23E2800F47FC4 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		2D76057025F24FD400F47FC4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2DFD243125FF76BB009927FC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		534EDB33D6D71BCD015874F6 /* Pods_CovidApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE96EAE7B69898BC5A9C5AF1 /* Pods-CovidApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidApp.release.xcconfig"; path = "Target Support Files/Pods-CovidApp/Pods-CovidApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,12 +159,11 @@
 		2D76056A25F238AC00F47FC4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2D55B2C925F175BD007CC355 /* ViewController.swift */,
-				2D76056D25F23E2800F47FC4 /* OnboardingController.swift */,
-				2D76057025F24FD400F47FC4 /* DetailViewController.swift */,
-				2D5781B025FA1CDC00CA0E59 /* NewsViewController.swift */,
-				2D5781BD25FA2E8E00CA0E59 /* NewsDetailsViewController.swift */,
+				2DFD242A25FF7659009927FC /* Onboarding */,
+				2DFD242E25FF7668009927FC /* CountryInfo */,
+				2DFD242F25FF7686009927FC /* NewsInfo */,
 				2D5781C525FA3D0F00CA0E59 /* TabController.swift */,
+				2DFD243025FF769B009927FC /* Map */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -174,6 +175,40 @@
 				2D5781AD25FA1BA300CA0E59 /* NewsFeed.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2DFD242A25FF7659009927FC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2D76056D25F23E2800F47FC4 /* OnboardingController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2DFD242E25FF7668009927FC /* CountryInfo */ = {
+			isa = PBXGroup;
+			children = (
+				2D76057025F24FD400F47FC4 /* DetailViewController.swift */,
+				2D55B2C925F175BD007CC355 /* CountryViewController.swift */,
+			);
+			path = CountryInfo;
+			sourceTree = "<group>";
+		};
+		2DFD242F25FF7686009927FC /* NewsInfo */ = {
+			isa = PBXGroup;
+			children = (
+				2D5781BD25FA2E8E00CA0E59 /* NewsDetailsViewController.swift */,
+				2D5781B025FA1CDC00CA0E59 /* NewsViewController.swift */,
+			);
+			path = NewsInfo;
+			sourceTree = "<group>";
+		};
+		2DFD243025FF769B009927FC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2DFD243125FF76BB009927FC /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		361EA6B7B4BD167C26324DEE /* Frameworks */ = {
@@ -340,12 +375,13 @@
 			files = (
 				2D5781C625FA3D0F00CA0E59 /* TabController.swift in Sources */,
 				2D5781BE25FA2E8E00CA0E59 /* NewsDetailsViewController.swift in Sources */,
-				2D55B2CA25F175BD007CC355 /* ViewController.swift in Sources */,
+				2D55B2CA25F175BD007CC355 /* CountryViewController.swift in Sources */,
 				2D55B2C625F175BD007CC355 /* AppDelegate.swift in Sources */,
 				2D76056E25F23E2800F47FC4 /* OnboardingController.swift in Sources */,
 				2D5781B125FA1CDC00CA0E59 /* NewsViewController.swift in Sources */,
 				2D55B2C825F175BD007CC355 /* SceneDelegate.swift in Sources */,
 				2D55B2DB25F176E3007CC355 /* Covid.swift in Sources */,
+				2DFD243225FF76BB009927FC /* MapViewController.swift in Sources */,
 				2D55B2DE25F17DD8007CC355 /* CovidTableCell.swift in Sources */,
 				2D76057125F24FD400F47FC4 /* DetailViewController.swift in Sources */,
 				2D5781AE25FA1BA300CA0E59 /* NewsFeed.swift in Sources */,

@@ -37,13 +37,10 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
         var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         
         for index in 0..<desc.count {
-            
             frame.origin.x = scrollWidth * CGFloat(index)
-            
             frame.size = CGSize(width: scrollWidth, height:
                                     scrollHeight)
             let slide = UIView(frame: frame)
-            
             let image = UIImageView.init(image:
                                             UIImage.init(named: images[index]))
             image.frame = CGRect(x:0,y:0,width:320,height:350)

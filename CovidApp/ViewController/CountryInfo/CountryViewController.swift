@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class CountryViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var table: UITableView!
@@ -47,46 +47,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
             }
         }.resume()
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return filteredCountries.count
-        }
-        return model.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as! CovidTableCell
-        //        let location = model[indexPath.row]
-        let corona: Covid
-        if isFiltering {
-            corona = filteredCountries[indexPath.row]
-        } else {
-            corona = model[indexPath.row]
-        }
-        cell.country.text = corona.country
-        cell.cases.text = String(corona.cases)
-        cell.deaths.text = String(corona.deaths!)
-        let imgUrl = corona.countryInfo.flag
-        cell.img.sd_setImage(with: URL(string: imgUrl), completed: nil)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let corona: Covid
-        let detailsvc = storyboard?.instantiateViewController(withIdentifier: "detailvc") as! DetailViewController
-        if isFiltering {
-            corona = filteredCountries[indexPath.row]
-            detailsvc.covid = corona
-        } else {
-            corona = model[indexPath.row]
-            detailsvc.covid = corona
-        }
-        self.present(detailsvc, animated: true, completion: nil)
-    }
-    
 }
 
-extension ViewController: UISearchResultsUpdating {
+extension CountryViewController: UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
     
     func fill() {
         searchController.searchBar.delegate = self
@@ -120,4 +83,38 @@ extension ViewController: UISearchResultsUpdating {
         return searchController.isActive && !isSearchBarEmpty
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredCountries.count
+        }
+        return model.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as! CovidTableCell
+        let corona: Covid
+        if isFiltering {
+            corona = filteredCountries[indexPath.row]
+        } else {
+            corona = model[indexPath.row]
+        }
+        cell.country.text = corona.country
+        cell.cases.text = String(corona.cases)
+        cell.deaths.text = String(corona.deaths!)
+        let imgUrl = corona.countryInfo.flag
+        cell.img.sd_setImage(with: URL(string: imgUrl), completed: nil)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let corona: Covid
+        let detailsvc = storyboard?.instantiateViewController(withIdentifier: "detailvc") as! DetailViewController
+        if isFiltering {
+            corona = filteredCountries[indexPath.row]
+            detailsvc.covid = corona
+        } else {
+            corona = model[indexPath.row]
+            detailsvc.covid = corona
+        }
+        self.present(detailsvc, animated: true, completion: nil)
+    }
 }

@@ -684,8 +684,8 @@
 				1F55097C4490DCFB8BA4B3D8D284ED33 /* SDAnimatedImage.h in Headers */,
 				DDABCEDA1455A7213CC6411BEE294CCB /* SDAnimatedImagePlayer.h in Headers */,
 				B74F4E473F8A8EE8922DE009ADBA3AB0 /* SDAnimatedImageRep.h in Headers */,
-				18D1D252617EE8076F60E5F13462A79F /* SDAnimatedImageView+WebCache.h in Headers */,
 				870F8CC125713185231805CA5F1A3005 /* SDAnimatedImageView.h in Headers */,
+				18D1D252617EE8076F60E5F13462A79F /* SDAnimatedImageView+WebCache.h in Headers */,
 				6D807F4E3245C11DF14F39F681BAEA23 /* SDAssociatedObject.h in Headers */,
 				71C95FB341142F6C81587F4A60DC189F /* SDAsyncBlockOperation.h in Headers */,
 				7771562E8212237F9D71DFA61B548766 /* SDDeviceHelper.h in Headers */,
@@ -718,8 +718,8 @@
 				482390939D521EDC7E4197436C13C005 /* SDMemoryCache.h in Headers */,
 				B13000184102BC002BDF251521D52FBE /* SDmetamacros.h in Headers */,
 				3D375A85D8162BC44D045F53781D006A /* SDWeakProxy.h in Headers */,
-				B964F75E0BEC223C3DDD199C6342AE0F /* SDWebImage-umbrella.h in Headers */,
 				A128F49AA0C69EC677B7CBE89E876B42 /* SDWebImage.h in Headers */,
+				B964F75E0BEC223C3DDD199C6342AE0F /* SDWebImage-umbrella.h in Headers */,
 				04762E2F6696F6B57AC647288F800D2D /* SDWebImageCacheKeyFilter.h in Headers */,
 				08414C28164CC487E519E30C48342B08 /* SDWebImageCacheSerializer.h in Headers */,
 				84B3C925CCA883C89A4FAF942D952371 /* SDWebImageCompat.h in Headers */,
@@ -758,8 +758,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4222381433A5B44A82C6D142468E52F /* SVPullToRefresh-umbrella.h in Headers */,
 				170FC927BE061D385FD93E518C56810B /* SVPullToRefresh.h in Headers */,
+				E4222381433A5B44A82C6D142468E52F /* SVPullToRefresh-umbrella.h in Headers */,
 				7B3B89459C1360891D72A08139FBF4AA /* UIScrollView+SVInfiniteScrolling.h in Headers */,
 				B759829DC5FF2AD6C33EF560BAF0D3CE /* UIScrollView+SVPullToRefresh.h in Headers */,
 			);
@@ -838,8 +838,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -897,8 +897,8 @@
 				6AC5D2781167F9081FBA570FC8B89C90 /* SDAnimatedImage.m in Sources */,
 				D91024E2275D2B62BB8CDFAADDA9F999 /* SDAnimatedImagePlayer.m in Sources */,
 				E3C7DC809034DACD9D1FF1856DAD3ED2 /* SDAnimatedImageRep.m in Sources */,
-				1F7AFE861609115DF7D756769A553F87 /* SDAnimatedImageView+WebCache.m in Sources */,
 				E57482DCBAB73E4AC9A8EB0816998D8F /* SDAnimatedImageView.m in Sources */,
+				1F7AFE861609115DF7D756769A553F87 /* SDAnimatedImageView+WebCache.m in Sources */,
 				02292FC1E8CF700F59D154DF2C841F75 /* SDAssociatedObject.m in Sources */,
 				AF855A5EDCAEFF0EFCD1F6AC49D664B5 /* SDAsyncBlockOperation.m in Sources */,
 				A8C8A2C92F70DFC3E67E1CCB0A5FBDA3 /* SDDeviceHelper.m in Sources */,

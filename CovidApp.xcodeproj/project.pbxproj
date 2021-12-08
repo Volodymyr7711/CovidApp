@@ -159,11 +159,11 @@
 		2D76056A25F238AC00F47FC4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2DFD242A25FF7659009927FC /* Onboarding */,
-				2DFD242E25FF7668009927FC /* CountryInfo */,
-				2DFD242F25FF7686009927FC /* NewsInfo */,
+				2DFD242A25FF7659009927FC /* OnboardingVC */,
+				2DFD242E25FF7668009927FC /* CountryVC */,
+				2DFD242F25FF7686009927FC /* NewsVC */,
 				2D5781C525FA3D0F00CA0E59 /* TabController.swift */,
-				2DFD243025FF769B009927FC /* Map */,
+				2DFD243025FF769B009927FC /* MapVC */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -177,38 +177,38 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		2DFD242A25FF7659009927FC /* Onboarding */ = {
+		2DFD242A25FF7659009927FC /* OnboardingVC */ = {
 			isa = PBXGroup;
 			children = (
 				2D76056D25F23E2800F47FC4 /* OnboardingController.swift */,
 			);
-			path = Onboarding;
+			path = OnboardingVC;
 			sourceTree = "<group>";
 		};
-		2DFD242E25FF7668009927FC /* CountryInfo */ = {
+		2DFD242E25FF7668009927FC /* CountryVC */ = {
 			isa = PBXGroup;
 			children = (
 				2D76057025F24FD400F47FC4 /* DetailViewController.swift */,
 				2D55B2C925F175BD007CC355 /* CountryViewController.swift */,
 			);
-			path = CountryInfo;
+			path = CountryVC;
 			sourceTree = "<group>";
 		};
-		2DFD242F25FF7686009927FC /* NewsInfo */ = {
+		2DFD242F25FF7686009927FC /* NewsVC */ = {
 			isa = PBXGroup;
 			children = (
 				2D5781BD25FA2E8E00CA0E59 /* NewsDetailsViewController.swift */,
 				2D5781B025FA1CDC00CA0E59 /* NewsViewController.swift */,
 			);
-			path = NewsInfo;
+			path = NewsVC;
 			sourceTree = "<group>";
 		};
-		2DFD243025FF769B009927FC /* Map */ = {
+		2DFD243025FF769B009927FC /* MapVC */ = {
 			isa = PBXGroup;
 			children = (
 				2DFD243125FF76BB009927FC /* MapViewController.swift */,
 			);
-			path = Map;
+			path = MapVC;
 			sourceTree = "<group>";
 		};
 		361EA6B7B4BD167C26324DEE /* Frameworks */ = {
@@ -534,7 +534,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6XNT2PX95H;
+				DEVELOPMENT_TEAM = D285DS228M;
 				INFOPLIST_FILE = CovidApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -554,7 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6XNT2PX95H;
+				DEVELOPMENT_TEAM = D285DS228M;
 				INFOPLIST_FILE = CovidApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

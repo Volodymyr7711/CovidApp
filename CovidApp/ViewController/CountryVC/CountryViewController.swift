@@ -23,15 +23,13 @@ class CountryViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        table.delegate = self
-        table.dataSource = self
-        definesPresentationContext = true
+        setupTableView()
         parse {
             self.table.reloadData()
         }
     }
     
-    func parse(completed: @escaping () -> ()) {
+   private func parse(completed: @escaping () -> ()) {
         let url = URL(string: "https://disease.sh/v3/covid-19/countries")
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -46,6 +44,14 @@ class CountryViewController: UIViewController, UISearchBarDelegate {
                 }
             }
         }.resume()
+    }
+    
+    private func setupTableView() {
+        definesPresentationContext = true
+        table.delegate = self
+        table.dataSource = self
+        table.showsVerticalScrollIndicator = false
+        table.showsHorizontalScrollIndicator = false
     }
 }
 
@@ -91,6 +97,7 @@ extension CountryViewController: UISearchResultsUpdating, UITableViewDelegate, U
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as! CovidTableCell
+        cell.selectionStyle = .none
         let corona: Covid
         if isFiltering {
             corona = filteredCountries[indexPath.row]

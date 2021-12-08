@@ -18,15 +18,14 @@ class NewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+        setupTableView()
         definesPresentationContext = true
         parse {
             self.tableView.reloadData()
             self.tableView.layoutIfNeeded()
         }
     }
-    func parse(completed: @escaping () -> ()) {
+   private func parse(completed: @escaping () -> ()) {
         let url = URL(string: "http://newsapi.org/v2/everything?q=\(category)&language=\(language)&apiKey=\(apiKey)")
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -42,6 +41,13 @@ class NewsViewController: UIViewController {
                 }
             }
         }.resume()
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
     }
 }
 
@@ -66,6 +72,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newsVC = storyboard?.instantiateViewController(withIdentifier: "newsVC") as! NewsDetailsViewController
+        newsVC.modalPresentationStyle = .fullScreen
         let news = newsFeed[indexPath.row]
         newsVC.news = news
         self.present(newsVC, animated: true, completion: nil)

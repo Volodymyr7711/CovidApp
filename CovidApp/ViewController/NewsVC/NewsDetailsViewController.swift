@@ -35,4 +35,7 @@ class NewsDetailsViewController: UIViewController {
         name?.text = news?.source.name
         
     }
+    @IBAction func dismissButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }

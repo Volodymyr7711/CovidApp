@@ -10,7 +10,7 @@ import SDWebImage
 
 class NewsDetailsViewController: UIViewController {
     
-    var news: Article?
+    public var news: Article?
     
     @IBOutlet weak var detailContent: UILabel!
     @IBOutlet weak var titleNews: UILabel!
@@ -23,18 +23,23 @@ class NewsDetailsViewController: UIViewController {
         feedImg.layer.masksToBounds = true
         feedImg.layer.borderWidth = 2
         feedImg.layer.borderColor = UIColor.red.cgColor
+        self.view.backgroundColor = .black
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupData()
+    }
+    
+    private func setupData() {
         let Img = news?.urlToImage
         detailNews?.text = news?.description
         feedImg?.sd_setImage(with: URL(string: Img!), completed: nil)
         detailContent?.text = news?.content
         titleNews?.text = news?.title
         name?.text = news?.source.name
-        
     }
+    
     @IBAction func dismissButton(_ sender: Any) {
         dismiss(animated: true)
     }

@@ -60,7 +60,7 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
             scrollView.addSubview(slide)
         }
         scrollView.contentSize = CGSize(width: scrollWidth *
-                                            CGFloat(desc.count), height: scrollHeight)
+                                        CGFloat(desc.count), height: scrollHeight)
         self.scrollView.contentSize.height = 1.0
         pageControl.numberOfPages = desc.count
         pageControl.currentPage = 0
@@ -68,12 +68,12 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
     }
     @IBAction func currentPage(_ sender: Any) {
         scrollView!.scrollRectToVisible(CGRect(x: scrollWidth *
-                                                CGFloat ((pageControl?.currentPage)!), y: 0, width: scrollWidth,
+                                               CGFloat ((pageControl?.currentPage)!), y: 0, width: scrollWidth,
                                                height: scrollHeight), animated: true)
         
     }
     func scrollViewDidEndDecelerating(_ scrollView:
-                                        UIScrollView) {
+                                      UIScrollView) {
         setIndiactorForCurrentPage()
     }
     func setIndiactorForCurrentPage()  {
@@ -85,7 +85,7 @@ class OnboardingController: UIViewController, UIScrollViewDelegate {
         button.backgroundColor = .clear
         button.layer.cornerRadius = 15
         button.layer.borderWidth = 0.5
-        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderColor = UIColor.systemBlue.cgColor
     }
     
     @IBAction func statisticAction(_ sender: Any) {

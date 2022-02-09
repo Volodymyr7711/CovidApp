@@ -16,6 +16,7 @@ class CountryViewController: UIViewController, UISearchBarDelegate {
     var model = [Covid]()
     var filteredCountries: [Covid] = []
     let searchController = UISearchController(searchResultsController: nil)
+    private var url = "https://disease.sh/v3/covid-19/countries"
     
     override func viewWillAppear(_ animated: Bool) {
         fill()
@@ -29,8 +30,8 @@ class CountryViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
-   private func parse(completed: @escaping () -> ()) {
-        let url = URL(string: "https://disease.sh/v3/covid-19/countries")
+    private func parse(completed: @escaping () -> ()) {
+        let url = URL(string: url)
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {
@@ -57,11 +58,16 @@ class CountryViewController: UIViewController, UISearchBarDelegate {
 
 extension CountryViewController: UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
     
-    func fill() {
+    
+    private func setupSearchBar() {
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Country"
+    }
+    
+    private func fill() {
+        setupSearchBar()
         self.topView.addSubview(self.searchController.searchBar)
         self.searchController.searchBar.sizeToFit()
         self.searchController.searchBar.frame.size.width = self.view.frame.size.width

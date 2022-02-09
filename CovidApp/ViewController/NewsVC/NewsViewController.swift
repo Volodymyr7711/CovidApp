@@ -11,10 +11,10 @@ import SDWebImage
 class NewsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var newsFeed = [Article]()
-    var apiKey: String = "c4a5aefd474b42069c588527578ffa4a"
-    var category: String = "covid"
-    var language: String = "en"
+    private var newsFeed = [Article]()
+    private  var apiKey = "c4a5aefd474b42069c588527578ffa4a"
+    private var category = "covid"
+    private var language = "en"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,8 @@ class NewsViewController: UIViewController {
             self.tableView.layoutIfNeeded()
         }
     }
-   private func parse(completed: @escaping () -> ()) {
+    
+    private func parse(completed: @escaping () -> ()) {
         let url = URL(string: "http://newsapi.org/v2/everything?q=\(category)&language=\(language)&apiKey=\(apiKey)")
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -64,17 +65,20 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.desc.text = feed.description
         cell.name.text = feed.author
         cell.title.text = feed.title
-        if cell.newsImg == nil {
+        if imgToUrl == nil {
             cell.newsImg.image = UIImage(named:"download")
         }
-        cell.newsImg.sd_setImage(with:URL(string: imgToUrl!)!, completed: nil)
+        if let srtToImg = imgToUrl {
+            cell.newsImg.sd_setImage(with:URL(string: srtToImg), completed: nil)
+        }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let newsVC = storyboard?.instantiateViewController(withIdentifier: "newsVC") as! NewsDetailsViewController
-        newsVC.modalPresentationStyle = .fullScreen
-        let news = newsFeed[indexPath.row]
-        newsVC.news = news
-        self.present(newsVC, animated: true, completion: nil)
+        let model = newsFeed[indexPath.row]
+        let detailsVC = storyboard?.instantiateViewController(withIdentifier: "newsVC") as! NewsDetailsViewController
+        detailsVC.news = model
+        self.present(detailsVC, animated: true, completion: nil)
     }
 }
+

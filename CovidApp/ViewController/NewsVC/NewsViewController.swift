@@ -11,7 +11,7 @@ import SDWebImage
 class NewsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    private var newsFeed = [Article]()
+    private var newsFeed = [ArticleViewModel]()
     private  var apiKey = "c4a5aefd474b42069c588527578ffa4a"
     private var category = "covid"
     private var language = "en"
@@ -32,7 +32,7 @@ class NewsViewController: UIViewController {
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {
                 do {
-                    let root = try JSONDecoder().decode(NewsFeed.self, from: data!)
+                    let root = try JSONDecoder().decode(NewsFeedViewModel.self, from: data!)
                     self.newsFeed = root.articles
                     DispatchQueue.main.async {
                         completed()

@@ -10,7 +10,7 @@ import SDWebImage
 
 class NewsDetailsViewController: UIViewController {
     
-    public var news: Article?
+    public var news: ArticleViewModel?
     
     @IBOutlet weak var detailContent: UILabel!
     @IBOutlet weak var titleNews: UILabel!

@@ -13,8 +13,8 @@ class CountryViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var table: UITableView!
     
-    var model = [Covid]()
-    var filteredCountries: [Covid] = []
+    var model = [DetailViewModel]()
+    var filteredCountries: [DetailViewModel] = []
     let searchController = UISearchController(searchResultsController: nil)
     private var url = "https://disease.sh/v3/covid-19/countries"
     
@@ -36,7 +36,7 @@ class CountryViewController: UIViewController, UISearchBarDelegate {
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {
                 do {
-                    self.model = try JSONDecoder().decode([Covid].self, from: data!)
+                    self.model = try JSONDecoder().decode([DetailViewModel].self, from: data!)
                     DispatchQueue.main.async {
                         completed()
                     }
@@ -82,8 +82,8 @@ extension CountryViewController: UISearchResultsUpdating, UITableViewDelegate, U
         filterContentForSearchText(searchBar.text!)
     }
     func filterContentForSearchText(_ searchText: String,
-                                    category: Covid? = nil) {
-        filteredCountries = model.filter { (country: Covid) -> Bool in
+                                    category: DetailViewModel? = nil) {
+        filteredCountries = model.filter { (country: DetailViewModel) -> Bool in
             return country.country.lowercased().contains(searchText.lowercased())
         }
         table.reloadData()
@@ -104,7 +104,7 @@ extension CountryViewController: UISearchResultsUpdating, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)  as! CovidTableCell
         cell.selectionStyle = .none
-        let corona: Covid
+        let corona: DetailViewModel
         if isFiltering {
             corona = filteredCountries[indexPath.row]
         } else {
@@ -119,7 +119,7 @@ extension CountryViewController: UISearchResultsUpdating, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let corona: Covid
+        let corona: DetailViewModel?
         let detailsvc = storyboard?.instantiateViewController(withIdentifier: "detailvc") as! DetailViewController
         if isFiltering {
             corona = filteredCountries[indexPath.row]

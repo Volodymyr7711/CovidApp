@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var covid: Covid?
+    var covid: DetailViewModel?
     
     @IBOutlet weak var recovered: UILabel!
     @IBOutlet weak var todayRecovered: UILabel!

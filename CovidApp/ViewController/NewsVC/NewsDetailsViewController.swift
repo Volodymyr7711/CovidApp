@@ -23,7 +23,6 @@ class NewsDetailsViewController: UIViewController {
         feedImg.layer.masksToBounds = true
         feedImg.layer.borderWidth = 2
         feedImg.layer.borderColor = UIColor.red.cgColor
-        self.view.backgroundColor = .black
     }
     
     override func viewDidLoad() {

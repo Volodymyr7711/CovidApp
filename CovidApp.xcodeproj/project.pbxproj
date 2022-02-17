@@ -24,6 +24,8 @@
 		2D76056E25F23E2800F47FC4 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D76056D25F23E2800F47FC4 /* OnboardingController.swift */; };
 		2D76057125F24FD400F47FC4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D76057025F24FD400F47FC4 /* DetailViewController.swift */; };
 		2DFD243225FF76BB009927FC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD243125FF76BB009927FC /* MapViewController.swift */; };
+		63754B5D27BED68B00339B99 /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63754B5C27BED68B00339B99 /* ArticlesViewModel.swift */; };
+		63754B6227BED6EE00339B99 /* NameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63754B6127BED6EE00339B99 /* NameViewModel.swift */; };
 		63880E4527B8052B00CBDB5E /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63880E4427B8052B00CBDB5E /* DetailViewModel.swift */; };
 		63880E4727B80C1600CBDB5E /* NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63880E4627B80C1600CBDB5E /* NewsFeedViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		2D76057025F24FD400F47FC4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2DFD243125FF76BB009927FC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		534EDB33D6D71BCD015874F6 /* Pods_CovidApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63754B5C27BED68B00339B99 /* ArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
+		63754B6127BED6EE00339B99 /* NameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewModel.swift; sourceTree = "<group>"; };
 		63880E4427B8052B00CBDB5E /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		63880E4627B80C1600CBDB5E /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
 		FE96EAE7B69898BC5A9C5AF1 /* Pods-CovidApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidApp.release.xcconfig"; path = "Target Support Files/Pods-CovidApp/Pods-CovidApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 			children = (
 				63880E4427B8052B00CBDB5E /* DetailViewModel.swift */,
 				63880E4627B80C1600CBDB5E /* NewsFeedViewModel.swift */,
+				63754B5C27BED68B00339B99 /* ArticlesViewModel.swift */,
+				63754B6127BED6EE00339B99 /* NameViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63754B5D27BED68B00339B99 /* ArticlesViewModel.swift in Sources */,
 				2D5781C625FA3D0F00CA0E59 /* TabController.swift in Sources */,
 				2D5781BE25FA2E8E00CA0E59 /* NewsDetailsViewController.swift in Sources */,
 				2D55B2CA25F175BD007CC355 /* CountryViewController.swift in Sources */,
@@ -396,6 +403,7 @@
 				2D55B2C825F175BD007CC355 /* SceneDelegate.swift in Sources */,
 				2D55B2DB25F176E3007CC355 /* Covid.swift in Sources */,
 				2DFD243225FF76BB009927FC /* MapViewController.swift in Sources */,
+				63754B6227BED6EE00339B99 /* NameViewModel.swift in Sources */,
 				63880E4527B8052B00CBDB5E /* DetailViewModel.swift in Sources */,
 				2D55B2DE25F17DD8007CC355 /* CovidTableCell.swift in Sources */,
 				2D76057125F24FD400F47FC4 /* DetailViewController.swift in Sources */,

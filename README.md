@@ -1,7 +1,7 @@
 
 # CovidApp
 
-I developed some test application about corovirus disease. Here we can check some statistic, news and etc. Used UIKit framework.
+I developed some test application about corovirus disease with onboarding feature. Here we can check some statistic, news and etc. Used UIKit framework.
 
 
 API:
